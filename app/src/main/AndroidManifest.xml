@@ -16,6 +16,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".MenuActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".CrimeActivity" />
+        <activity android:name=".MissingActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".SignupActivity" />
+        <activity android:name=".ForgotPasswordActivity" />
+        <activity android:name=".MyMissingActivity" />
+        <activity android:name=".MyCrimeActivity" />
+        <activity android:name=".MyComplainActivity" />
+        <activity android:name=".AddMyCrimeActivity" />
+        <activity android:name=".AddMyComplainActivity"></activity>
     </application>
 
 </manifest>
