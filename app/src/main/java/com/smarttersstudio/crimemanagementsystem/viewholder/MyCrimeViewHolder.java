@@ -2,12 +2,14 @@ package com.smarttersstudio.crimemanagementsystem.viewholder;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.smarttersstudio.crimemanagementsystem.R;
 
 public class MyCrimeViewHolder extends RecyclerView.ViewHolder {
     private TextView nameText,titleText,statusText,dateText,descText,pinText;
+    private View v;
     public MyCrimeViewHolder(View itemView) {
         super(itemView);
         nameText=itemView.findViewById(R.id.my_crime_row_name);
@@ -16,6 +18,10 @@ public class MyCrimeViewHolder extends RecyclerView.ViewHolder {
         dateText=itemView.findViewById(R.id.my_crime_row_date);
         descText=itemView.findViewById(R.id.my_crime_row_desc);
         pinText=itemView.findViewById(R.id.my_crime_row_pin);
+        v=itemView;
+    }
+    public void setInvisible(){
+        v.setLayoutParams(new LinearLayout.LayoutParams(0,0));
     }
     public void setName(String name){
         nameText.setText(name);

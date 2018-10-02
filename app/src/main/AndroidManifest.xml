@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.smarttersstudio.crimemanagementsystem">
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -29,7 +29,12 @@
         <activity android:name=".MyCrimeActivity" />
         <activity android:name=".MyComplainActivity" />
         <activity android:name=".AddMyCrimeActivity" />
-        <activity android:name=".AddMyComplainActivity"></activity>
+        <activity android:name=".AddMyComplainActivity" />
+        <activity android:name=".AddMyMissingActivity"/>
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Base.Theme.AppCompat" />
     </application>
 
 </manifest>
