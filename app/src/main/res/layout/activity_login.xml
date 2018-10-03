@@ -7,24 +7,40 @@
     tools:context=".LoginActivity"
     android:orientation="vertical"
     android:gravity="center">
+    <ImageView
+        android:layout_width="160sp"
+        android:layout_height="160sp"
+        android:layout_margin="10sp"
+        android:src="@drawable/logo"
+        />
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45sp"
+        android:background="@drawable/edit_shape"
         android:inputType="textEmailAddress"
         android:layout_margin="10dp"
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp"
         android:hint="Email Address"
         android:id="@+id/login_email"/>
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45sp"
+        android:background="@drawable/edit_shape"
         android:inputType="textPassword"
         android:id="@+id/login_password"
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp"
         android:hint="Password"
         android:layout_margin="10dp"/>
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="login"
+        android:text="Login now"
+        android:background="@drawable/btn_shape"
+        android:textColor="#ffffff"
+        android:textSize="17sp"
+        android:layout_margin="10sp"
         android:onClick="login"/>
     <RelativeLayout
         android:layout_width="match_parent"
@@ -33,15 +49,19 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="signup"
-            android:layout_margin="30dp"
+            android:text="Register Now"
+            android:padding="10sp"
+            android:textSize="17sp"
+            android:layout_margin="20dp"
             android:onClick="goToSignup"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="forgot password"
+            android:text="Forgot Password?"
+            android:padding="10sp"
+            android:textSize="17sp"
             android:layout_alignParentRight="true"
-            android:layout_margin="30dp"
+            android:layout_margin="20dp"
             android:onClick="gotoToForgot"/>
     </RelativeLayout>
 </LinearLayout>

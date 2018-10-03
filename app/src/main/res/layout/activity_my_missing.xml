@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ic_add_black_24dp"
         android:layout_gravity="bottom|end"
-        android:layout_margin="10dp"
+        android:layout_margin="11dp"
         android:onClick="goToAddMyMissing"
         />
 </android.support.design.widget.CoordinatorLayout>

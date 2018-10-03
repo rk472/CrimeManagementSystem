@@ -7,9 +7,16 @@
     tools:context=".AddMyCrimeActivity"
     android:orientation="vertical"
     android:gravity="center">
+    <ImageView
+        android:layout_width="160sp"
+        android:layout_height="160sp"
+        android:layout_margin="10sp"
+        android:src="@drawable/logo"
+        />
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45sp"
+        android:background="@drawable/edit_shape"
         android:inputType="text"
         android:layout_margin="10dp"
         android:hint="Title"
@@ -17,7 +24,8 @@
         android:id="@+id/crime_title"/>
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45sp"
+        android:background="@drawable/edit_shape"
         android:inputType="textMultiLine"
         android:maxLength="400"
         android:layout_margin="10dp"
@@ -26,7 +34,8 @@
         android:id="@+id/crime_desc"/>
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45sp"
+        android:background="@drawable/edit_shape"
         android:inputType="number"
         android:maxLength="6"
         android:layout_margin="10dp"
@@ -34,8 +43,12 @@
         android:textAlignment="center"
         android:id="@+id/crime_pincode"/>
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="report"
+        android:text="add crime report"
+        android:background="@drawable/btn_shape"
+        android:textColor="#ffffff"
+        android:textSize="17sp"
+        android:layout_margin="10sp"
         android:onClick="addComplain"/>
 </LinearLayout>

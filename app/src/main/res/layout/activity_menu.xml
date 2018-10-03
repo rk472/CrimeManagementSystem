@@ -6,16 +6,73 @@
     android:layout_height="match_parent"
     tools:context=".MenuActivity"
     android:orientation="vertical"
+    android:weightSum="2"
     android:gravity="center">
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="goToCrime"
-        android:text="View Crimes"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="View Missings"
-        android:onClick="goToMissings"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/complain_back"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#75fc3737"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20sp"
+            android:background="#70000000"
+            android:padding="10sp"
+            android:fontFamily="@font/acme"
+            android:text="View All Crimes"
+            android:textColor="#ffffff"
+            android:textSize="30sp" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#00000000"
+            android:onClick="goToCrime"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/missing_back"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#7528b0ff"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20sp"
+            android:background="#70000000"
+            android:padding="10sp"
+            android:fontFamily="@font/acme"
+            android:text="View Missing Reports"
+            android:textColor="#ffffff"
+            android:textSize="30sp" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#00000000"
+            android:onClick="goToMissings"/>
+    </RelativeLayout>
+
+
 
 </LinearLayout>
