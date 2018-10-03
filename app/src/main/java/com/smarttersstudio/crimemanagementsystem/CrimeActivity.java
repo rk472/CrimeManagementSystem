@@ -46,9 +46,9 @@ public class CrimeActivity extends AppCompatActivity {
     FirebaseRecyclerAdapter<Crime,MyCrimeViewHolder> refresh(String s){
         Query q;
         if(TextUtils.isEmpty(s))
-            q=childRef.child("missing");
+            q=childRef.child("crime");
         else
-            q=childRef.child("missing").startAt(s).orderByChild("pin").endAt(s+"\uf8ff");
+            q=childRef.child("crime").startAt(s).orderByChild("pin").endAt(s+"\uf8ff");
         FirebaseRecyclerOptions<Crime> options=new FirebaseRecyclerOptions.Builder<Crime>().setQuery(q,Crime.class).build();
         f=new FirebaseRecyclerAdapter<Crime, MyCrimeViewHolder>(options) {
             @Override
