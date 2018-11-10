@@ -40,7 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="45sp"
                 android:background="@drawable/edit_shape"
-                android:inputType="number"
+                android:inputType="text"
                 android:layout_margin="10dp"
                 android:hint="Name"
                 android:textAlignment="center"

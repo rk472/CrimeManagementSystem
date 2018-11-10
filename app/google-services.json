@@ -1,35 +1,27 @@
 {
   "project_info": {
-    "project_number": "181652384747",
-    "firebase_url": "https://crimemanagementsystem-f7e34.firebaseio.com",
-    "project_id": "crimemanagementsystem-f7e34",
-    "storage_bucket": "crimemanagementsystem-f7e34.appspot.com"
+    "project_number": "1069702385118",
+    "firebase_url": "https://crimemanagement-cadf6.firebaseio.com",
+    "project_id": "crimemanagement-cadf6",
+    "storage_bucket": "crimemanagement-cadf6.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:181652384747:android:1775a7f257d2cecd",
+        "mobilesdk_app_id": "1:1069702385118:android:60ed5e7e13795205",
         "android_client_info": {
-          "package_name": "com.smarttersstudio.crimemanagementsystem"
+          "package_name": "com.smarttersstudio.crimeadmin"
         }
       },
       "oauth_client": [
         {
-          "client_id": "181652384747-o8dep5g8ravv3qqle90aa9r786smb9qu.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.smarttersstudio.crimemanagementsystem",
-            "certificate_hash": "0a0a24921c5f55a18cd40b33d7d4043249d794be"
-          }
-        },
-        {
-          "client_id": "181652384747-s7659k2nmh9cuqb7lq5g2ki4jlt4ulhn.apps.googleusercontent.com",
+          "client_id": "1069702385118-ges38u3tvvvi3nsbk55778ie1eo29ku6.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCLKCBA-WyllOKYT4PasmWssusReqiYT98"
+          "current_key": "AIzaSyDliRzojA9VzmLCK_EvFQTgrrP58DFNLjE"
         }
       ],
       "services": {
@@ -37,13 +29,39 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "181652384747-s7659k2nmh9cuqb7lq5g2ki4jlt4ulhn.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1069702385118:android:1775a7f257d2cecd",
+        "android_client_info": {
+          "package_name": "com.smarttersstudio.crimemanagementsystem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1069702385118-ges38u3tvvvi3nsbk55778ie1eo29ku6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDliRzojA9VzmLCK_EvFQTgrrP58DFNLjE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
         },
         "ads_service": {
           "status": 2
