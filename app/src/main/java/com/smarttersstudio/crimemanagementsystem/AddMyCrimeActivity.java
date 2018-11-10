@@ -60,7 +60,7 @@ public class AddMyCrimeActivity extends AppCompatActivity {
             m.put("phone",phone);
             m.put("uid",uid);
             m.put("status","submitted");
-            SimpleDateFormat s=new SimpleDateFormat("dd mm yyyy hh mm");
+            SimpleDateFormat s=new SimpleDateFormat("dd:mm:yyyy hh:mm");
             String date=s.format(new Date());
             m.put("date",date);
             final String key=crimeRef.push().getKey();
