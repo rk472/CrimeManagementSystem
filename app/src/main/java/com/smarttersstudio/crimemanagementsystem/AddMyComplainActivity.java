@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AddMyComplainActivity extends AppCompatActivity {
-    private EditText titleText,descText,pinText;
+    private EditText titleText,descText,pinText,phoneText;
     private FirebaseAuth mAuth;
     private DatabaseReference userRef,crimeRef;
     private String uid;
@@ -32,6 +32,7 @@ public class AddMyComplainActivity extends AppCompatActivity {
         titleText=findViewById(R.id.complain_title);
         descText=findViewById(R.id.complain_desc);
         pinText=findViewById(R.id.complain_pincode);
+        phoneText=findViewById(R.id.complain_phone);
         mAuth=FirebaseAuth.getInstance();
         uid=mAuth.getCurrentUser().getUid();
         userRef= FirebaseDatabase.getInstance().getReference().child("users").child(uid).child("complain");
@@ -42,7 +43,8 @@ public class AddMyComplainActivity extends AppCompatActivity {
         String title=titleText.getText().toString().trim();
         String desc=descText.getText().toString().trim();
         String pin=pinText.getText().toString().trim();
-        if(TextUtils.isEmpty(title) || TextUtils.isEmpty(desc) || TextUtils.isEmpty(pin) ){
+        String phone=phoneText.getText().toString();
+        if(TextUtils.isEmpty(title) || TextUtils.isEmpty(desc) || phone.isEmpty() || TextUtils.isEmpty(pin) ){
             Toast.makeText(this, "All fields must be filled", Toast.LENGTH_SHORT).show();
         }else{
             final ProgressDialog p=new ProgressDialog(this);
@@ -56,6 +58,7 @@ public class AddMyComplainActivity extends AppCompatActivity {
             m.put("desc",desc);
             m.put("pin",pin);
             m.put("uid",uid);
+            m.put("phone",phone);
             m.put("status","submitted");
             SimpleDateFormat s=new SimpleDateFormat("dd mm yyyy hh mm");
             String date=s.format(new Date());

@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AddMyCrimeActivity extends AppCompatActivity {
-    private EditText titleText,descText,pinText;
+    private EditText titleText,descText,pinText,phoneText;
     private FirebaseAuth mAuth;
     private DatabaseReference userRef,crimeRef;
     private String uid;
@@ -31,6 +31,7 @@ public class AddMyCrimeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_my_crime);
         titleText=findViewById(R.id.crime_title);
         descText=findViewById(R.id.crime_desc);
+        phoneText=findViewById(R.id.crime_phone);
         pinText=findViewById(R.id.crime_pincode);
         mAuth=FirebaseAuth.getInstance();
         uid=mAuth.getCurrentUser().getUid();
@@ -42,7 +43,8 @@ public class AddMyCrimeActivity extends AppCompatActivity {
         String title=titleText.getText().toString().trim();
         String desc=descText.getText().toString().trim();
         String pin=pinText.getText().toString().trim();
-        if(TextUtils.isEmpty(title) || TextUtils.isEmpty(desc) || TextUtils.isEmpty(pin) ){
+        String phone=phoneText.getText().toString().trim();
+        if(TextUtils.isEmpty(title) || phone.isEmpty() || TextUtils.isEmpty(desc) || TextUtils.isEmpty(pin) ){
             Toast.makeText(this, "All fields must be filled", Toast.LENGTH_SHORT).show();
         }else{
             final ProgressDialog p=new ProgressDialog(this);
@@ -55,6 +57,7 @@ public class AddMyCrimeActivity extends AppCompatActivity {
             m.put("title",title);
             m.put("desc",desc);
             m.put("pin",pin);
+            m.put("phone",phone);
             m.put("uid",uid);
             m.put("status","submitted");
             SimpleDateFormat s=new SimpleDateFormat("dd mm yyyy hh mm");
