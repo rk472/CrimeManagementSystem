@@ -136,7 +136,14 @@
                 android:textAllCaps="true"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/acme"
-                android:textSize="17sp" />
+                android:textSize="17sp"
+                android:text="Not Found"
+                />
         </LinearLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="call"
+            android:id="@+id/missing_call_button"/>
     </LinearLayout>
 </android.support.v7.widget.CardView>

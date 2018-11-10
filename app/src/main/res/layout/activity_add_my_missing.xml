@@ -87,7 +87,16 @@
                         android:layout_margin="10dp"/>
                 </RadioGroup>
             </LinearLayout>
-
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="45sp"
+                android:background="@drawable/edit_shape"
+                android:inputType="number"
+                android:layout_margin="10dp"
+                android:maxLength="6"
+                android:hint="Phone number"
+                android:textAlignment="center"
+                android:id="@+id/my_missing_phone"/>
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="45sp"

@@ -38,7 +38,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import id.zelory.compressor.Compressor;
 
 public class AddMyMissingActivity extends AppCompatActivity {
-    private EditText nameText,ageText,pinText;
+    private EditText nameText,ageText,pinText,phoneText;
     private RadioGroup genderSelect;
     private CircleImageView image;
     private Bitmap bitmap;
@@ -53,6 +53,7 @@ public class AddMyMissingActivity extends AppCompatActivity {
         nameText=findViewById(R.id.my_missing_name);
         ageText=findViewById(R.id.my_missing_age);
         pinText=findViewById(R.id.my_missing_pin);
+        phoneText=findViewById(R.id.my_missing_phone);
         genderSelect=findViewById(R.id.gender_select);
         male=findViewById(R.id.gender_male);
         male.setChecked(true);
@@ -100,6 +101,7 @@ public class AddMyMissingActivity extends AppCompatActivity {
         final String name=nameText.getText().toString().trim();
         final String pin=pinText.getText().toString().trim();
         final String age=ageText.getText().toString();
+        final String phone=phoneText.getText().toString();
         RadioButton rb=findViewById(genderSelect.getCheckedRadioButtonId());
         final String gender=rb.getText().toString();
         if(bitmap==null){
@@ -135,6 +137,7 @@ public class AddMyMissingActivity extends AppCompatActivity {
                     m.put("gender",gender);
                     m.put("uid", uid);
                     m.put("status", "Not Found");
+                    m.put("phone",phone);
                     @SuppressLint("SimpleDateFormat") SimpleDateFormat s = new SimpleDateFormat("dd mm yyyy hh mm");
                     String date = s.format(new Date());
                     m.put("date", date);

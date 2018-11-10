@@ -1,7 +1,7 @@
 package com.smarttersstudio.crimemanagementsystem.pojo;
 
 public class Missing {
-    String name,age,date,gender,image,pin,status,uid;
+    String name,age,date,gender,image,pin,status,uid,phone;
 
     public String getName() {
         return name;
@@ -67,7 +67,15 @@ public class Missing {
         this.uid = uid;
     }
 
-    public Missing(String name, String age, String date, String gender, String image, String pin, String status, String uid) {
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public Missing(String name, String age, String date, String gender, String image, String pin, String status, String uid, String phone) {
 
         this.name = name;
         this.age = age;
@@ -77,6 +85,7 @@ public class Missing {
         this.pin = pin;
         this.status = status;
         this.uid = uid;
+        this.phone = phone;
     }
 
     public Missing() {

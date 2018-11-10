@@ -1,7 +1,11 @@
 package com.smarttersstudio.crimemanagementsystem;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -29,34 +33,36 @@ import com.smarttersstudio.crimemanagementsystem.viewholder.MyMissingViewHolder;
 
 public class MissingActivity extends AppCompatActivity {
     private RecyclerView list;
-    private FirebaseRecyclerAdapter<Missing,MyMissingViewHolder> f;
+    private FirebaseRecyclerAdapter<Missing, MyMissingViewHolder> f;
     private DatabaseReference childRef;
     private EditText searchText;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_missing);
-        list=findViewById(R.id.missing_list);
-        searchText=findViewById(R.id.missing_search);
-        childRef= FirebaseDatabase.getInstance().getReference();
+        list = findViewById(R.id.missing_list);
+        searchText = findViewById(R.id.missing_search);
+        childRef = FirebaseDatabase.getInstance().getReference();
         list.setAdapter(getAdapter(""));
         list.setHasFixedSize(true);
-        list.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+        list.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
     }
-    FirebaseRecyclerAdapter<Missing,MyMissingViewHolder> getAdapter(String s){
+
+    FirebaseRecyclerAdapter<Missing, MyMissingViewHolder> getAdapter(String s) {
         Query q;
-        if(TextUtils.isEmpty(s))
-            q=childRef.child("missing");
+        if (TextUtils.isEmpty(s))
+            q = childRef.child("missing");
         else
-        q=childRef.child("missing").startAt(s).orderByChild("pin").endAt(s+"\uf8ff");
-        FirebaseRecyclerOptions<Missing> options=new FirebaseRecyclerOptions.Builder<Missing>().setQuery(q,Missing.class).build();
-        f=new FirebaseRecyclerAdapter<Missing, MyMissingViewHolder>(options) {
+            q = childRef.child("missing").startAt(s).orderByChild("pin").endAt(s + "\uf8ff");
+        FirebaseRecyclerOptions<Missing> options = new FirebaseRecyclerOptions.Builder<Missing>().setQuery(q, Missing.class).build();
+        f = new FirebaseRecyclerAdapter<Missing, MyMissingViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull final MyMissingViewHolder holder, int position, @NonNull Missing model) {
-                if(model.getStatus().equalsIgnoreCase("found")){
+            protected void onBindViewHolder(@NonNull final MyMissingViewHolder holder, int position, @NonNull final Missing model) {
+                if (model.getStatus().equalsIgnoreCase("found")) {
                     holder.setInvisible();
-                }else {
+                } else {
                     holder.setStatusInvisible();
                     holder.setDate(model.getDate());
                     holder.setPin(model.getPin());
@@ -65,6 +71,17 @@ public class MissingActivity extends AppCompatActivity {
                     holder.setGender(model.getGender());
                     holder.setImage(model.getImage(), getApplicationContext());
                     holder.setName(model.getName());
+                    holder.callButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent i = new Intent(Intent.ACTION_CALL);
+                            i.setData(Uri.parse("tel:" + model.getPhone()));
+                            if (ActivityCompat.checkSelfPermission(MissingActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                                return;
+                            }
+                            startActivity(i);
+                        }
+                    });
                 }
             }
 
