@@ -39,7 +39,7 @@
         android:inputType="number"
         android:maxLength="6"
         android:layout_margin="10dp"
-        android:hint="Title"
+        android:hint="Pin Code"
         android:textAlignment="center"
         android:id="@+id/crime_pincode"/>
     <Button
