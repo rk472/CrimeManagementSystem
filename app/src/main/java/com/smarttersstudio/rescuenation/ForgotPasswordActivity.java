@@ -1,4 +1,4 @@
-package com.smarttersstudio.crimemanagementsystem;
+package com.smarttersstudio.rescuenation;
 
 import android.app.ProgressDialog;
 import android.support.annotation.NonNull;

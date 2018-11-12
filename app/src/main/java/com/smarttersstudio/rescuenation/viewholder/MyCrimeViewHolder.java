@@ -1,11 +1,11 @@
-package com.smarttersstudio.crimemanagementsystem.viewholder;
+package com.smarttersstudio.rescuenation.viewholder;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.smarttersstudio.crimemanagementsystem.R;
+import com.smarttersstudio.rescuenation.R;
 
 public class MyCrimeViewHolder extends RecyclerView.ViewHolder {
     private TextView nameText,titleText,statusText,dateText,descText,pinText;

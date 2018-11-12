@@ -1,4 +1,4 @@
-package com.smarttersstudio.crimemanagementsystem;
+package com.smarttersstudio.rescuenation;
 
 import android.Manifest;
 import android.content.Intent;
@@ -23,8 +23,8 @@ import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
-import com.smarttersstudio.crimemanagementsystem.pojo.Missing;
-import com.smarttersstudio.crimemanagementsystem.viewholder.MyMissingViewHolder;
+import com.smarttersstudio.rescuenation.pojo.Missing;
+import com.smarttersstudio.rescuenation.viewholder.MyMissingViewHolder;
 
 public class MissingActivity extends AppCompatActivity {
     private RecyclerView list;
@@ -58,7 +58,6 @@ public class MissingActivity extends AppCompatActivity {
                 if (model.getStatus().equalsIgnoreCase("found")) {
                     holder.setInvisible();
                 } else {
-                    holder.setStatusInvisible();
                     holder.setDate(model.getDate());
                     holder.setPin(model.getPin());
                     holder.setStatus(model.getStatus());

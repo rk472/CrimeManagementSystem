@@ -1,4 +1,4 @@
-package com.smarttersstudio.crimemanagementsystem.pojo;
+package com.smarttersstudio.rescuenation.pojo;
 
 public class Own {
     String key;

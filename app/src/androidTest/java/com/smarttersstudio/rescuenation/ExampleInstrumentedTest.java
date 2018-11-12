@@ -1,4 +1,4 @@
-package com.smarttersstudio.crimemanagementsystem;
+package com.smarttersstudio.rescuenation;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

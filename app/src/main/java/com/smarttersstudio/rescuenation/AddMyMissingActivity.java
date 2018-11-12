@@ -1,6 +1,5 @@
-package com.smarttersstudio.crimemanagementsystem;
+package com.smarttersstudio.rescuenation;
 
-import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -138,7 +137,7 @@ public class AddMyMissingActivity extends AppCompatActivity {
                     m.put("uid", uid);
                     m.put("status", "Not Found");
                     m.put("phone",phone);
-                    SimpleDateFormat s=new SimpleDateFormat("dd:mm:yyyy hh:mm");
+                    SimpleDateFormat s=new SimpleDateFormat("dd:MM:yyyy hh:mm");
                     String date = s.format(new Date());
                     m.put("date", date);
                     final String key = missingRef.push().getKey();

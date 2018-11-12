@@ -1,4 +1,4 @@
-package com.smarttersstudio.crimemanagementsystem.viewholder;
+package com.smarttersstudio.rescuenation.viewholder;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.smarttersstudio.crimemanagementsystem.R;
+import com.smarttersstudio.rescuenation.R;
 import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -32,9 +32,6 @@ public class MyMissingViewHolder extends RecyclerView.ViewHolder {
     public void setInvisible(){
         v.setLayoutParams(new LinearLayout.LayoutParams(0,0));
     }
-    public void setStatusInvisible(){
-        statusText.setVisibility(View.GONE);
-    }
     public void setName(String name){nameText.setText(name);}
     public void setAge(String age){ageText.setText(age);}
     public void setImage(String url, Context c){
@@ -47,8 +44,8 @@ public class MyMissingViewHolder extends RecyclerView.ViewHolder {
         genderText.setText(gender);
     }
     public void setStatus(String status){
-        statusText.setText(status);
-    }
+
+            }
     public void setPin(String pin){
         pinText.setText(pin);
     }

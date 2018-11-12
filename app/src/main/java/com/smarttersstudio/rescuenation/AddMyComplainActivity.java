@@ -1,4 +1,4 @@
-package com.smarttersstudio.crimemanagementsystem;
+package com.smarttersstudio.rescuenation;
 
 import android.app.ProgressDialog;
 import android.support.annotation.NonNull;
@@ -20,7 +20,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class AddMyCrimeActivity extends AppCompatActivity {
+public class AddMyComplainActivity extends AppCompatActivity {
     private EditText titleText,descText,pinText,phoneText;
     private FirebaseAuth mAuth;
     private DatabaseReference userRef,crimeRef;
@@ -28,23 +28,23 @@ public class AddMyCrimeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_my_crime);
-        titleText=findViewById(R.id.crime_title);
-        descText=findViewById(R.id.crime_desc);
-        phoneText=findViewById(R.id.crime_phone);
-        pinText=findViewById(R.id.crime_pincode);
+        setContentView(R.layout.activity_add_my_complain);
+        titleText=findViewById(R.id.complain_title);
+        descText=findViewById(R.id.complain_desc);
+        pinText=findViewById(R.id.complain_pincode);
+        phoneText=findViewById(R.id.complain_phone);
         mAuth=FirebaseAuth.getInstance();
         uid=mAuth.getCurrentUser().getUid();
-        userRef= FirebaseDatabase.getInstance().getReference().child("users").child(uid).child("crime");
-        crimeRef=FirebaseDatabase.getInstance().getReference().child("crime");
+        userRef= FirebaseDatabase.getInstance().getReference().child("users").child(uid).child("complain");
+        crimeRef=FirebaseDatabase.getInstance().getReference().child("complain");
     }
 
     public void addComplain(View view) {
         String title=titleText.getText().toString().trim();
         String desc=descText.getText().toString().trim();
         String pin=pinText.getText().toString().trim();
-        String phone=phoneText.getText().toString().trim();
-        if(TextUtils.isEmpty(title) || phone.isEmpty() || TextUtils.isEmpty(desc) || TextUtils.isEmpty(pin) ){
+        String phone=phoneText.getText().toString();
+        if(TextUtils.isEmpty(title) || TextUtils.isEmpty(desc) || phone.isEmpty() || TextUtils.isEmpty(pin) ){
             Toast.makeText(this, "All fields must be filled", Toast.LENGTH_SHORT).show();
         }else{
             final ProgressDialog p=new ProgressDialog(this);
@@ -57,10 +57,10 @@ public class AddMyCrimeActivity extends AppCompatActivity {
             m.put("title",title);
             m.put("desc",desc);
             m.put("pin",pin);
-            m.put("phone",phone);
             m.put("uid",uid);
+            m.put("phone",phone);
             m.put("status","submitted");
-            SimpleDateFormat s=new SimpleDateFormat("dd:mm:yyyy hh:mm");
+            SimpleDateFormat s=new SimpleDateFormat("dd:MM:yyyy hh:mm");
             String date=s.format(new Date());
             m.put("date",date);
             final String key=crimeRef.push().getKey();
@@ -72,21 +72,21 @@ public class AddMyCrimeActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(Void aVoid) {
                             p.dismiss();
-                            Toast.makeText(AddMyCrimeActivity.this, "Query successfully submitted", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AddMyComplainActivity.this, "Query successfully submitted", Toast.LENGTH_SHORT).show();
                             finish();
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             p.dismiss();
-                            Toast.makeText(AddMyCrimeActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(AddMyComplainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
             }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(AddMyCrimeActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddMyComplainActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
         }

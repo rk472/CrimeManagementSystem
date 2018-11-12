@@ -1,4 +1,4 @@
-package com.smarttersstudio.crimemanagementsystem.pojo;
+package com.smarttersstudio.rescuenation.pojo;
 
 public class Missing {
     String name,age,date,gender,image,pin,status,uid,phone;

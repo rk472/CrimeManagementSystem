@@ -1,4 +1,4 @@
-package com.smarttersstudio.crimemanagementsystem;
+package com.smarttersstudio.rescuenation;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -16,16 +16,14 @@ import android.widget.EditText;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.smarttersstudio.crimemanagementsystem.pojo.Crime;
-import com.smarttersstudio.crimemanagementsystem.pojo.Own;
-import com.smarttersstudio.crimemanagementsystem.viewholder.MyCrimeViewHolder;
+import com.smarttersstudio.rescuenation.pojo.Crime;
+import com.smarttersstudio.rescuenation.viewholder.MyCrimeViewHolder;
 
 public class CrimeActivity extends AppCompatActivity {
     private RecyclerView list;

@@ -1,4 +1,4 @@
-package com.smarttersstudio.crimemanagementsystem;
+package com.smarttersstudio.rescuenation;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -18,38 +18,45 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.smarttersstudio.crimemanagementsystem.pojo.Own;
-import com.smarttersstudio.crimemanagementsystem.viewholder.MyCrimeViewHolder;
-import com.smarttersstudio.crimemanagementsystem.viewholder.MyMissingViewHolder;
+import com.smarttersstudio.rescuenation.pojo.Own;
+import com.smarttersstudio.rescuenation.viewholder.MyCrimeViewHolder;
 
-public class MyMissingActivity extends AppCompatActivity {
-    private FirebaseRecyclerAdapter<Own,MyMissingViewHolder> f;
-    private DatabaseReference userRef;
+public class MyComplainActivity extends AppCompatActivity {
     private RecyclerView list;
     private FirebaseAuth mAuth;
+    private FirebaseRecyclerAdapter<Own,MyCrimeViewHolder> f;
+    private DatabaseReference userRef;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_missing);
-        list=findViewById(R.id.my_missing_list);
+        setContentView(R.layout.activity_my_complain);
+        list=findViewById(R.id.my_complain_list);
         mAuth=FirebaseAuth.getInstance();
         userRef= FirebaseDatabase.getInstance().getReference().child("users").child(mAuth.getCurrentUser().getUid());
-        FirebaseRecyclerOptions<Own> options=new FirebaseRecyclerOptions.Builder<Own>().setQuery(userRef.child("missing"),Own.class).build();
-        f=new FirebaseRecyclerAdapter<Own, MyMissingViewHolder>(options) {
+        FirebaseRecyclerOptions<Own> options=new FirebaseRecyclerOptions.Builder<Own>().setQuery(userRef.child("complain"),Own.class).build();
+        f=new FirebaseRecyclerAdapter<Own, MyCrimeViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull final MyMissingViewHolder holder, int position, @NonNull Own model) {
-                DatabaseReference crimeRef=FirebaseDatabase.getInstance().getReference().child("missing").child(model.getKey());
+            protected void onBindViewHolder(@NonNull final MyCrimeViewHolder holder, int position, @NonNull Own model) {
+                DatabaseReference crimeRef=FirebaseDatabase.getInstance().getReference().child("complain").child(model.getKey());
                 crimeRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         holder.setDate(dataSnapshot.child("date").getValue().toString());
+                        holder.setDesc(dataSnapshot.child("desc").getValue().toString());
                         holder.setPin(dataSnapshot.child("pin").getValue().toString());
+                        holder.setTitle(dataSnapshot.child("title").getValue().toString());
                         holder.setStatus(dataSnapshot.child("status").getValue().toString());
-                        holder.setAge(dataSnapshot.child("age").getValue().toString());
-                        holder.setGender(dataSnapshot.child("gender").getValue().toString());
-                        holder.setImage(dataSnapshot.child("image").getValue().toString(),getApplicationContext());
-                        holder.setName(dataSnapshot.child("name").getValue().toString());
+                    }
 
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+                userRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        holder.setName(dataSnapshot.child("name").getValue().toString());
                     }
 
                     @Override
@@ -62,23 +69,21 @@ public class MyMissingActivity extends AppCompatActivity {
 
             @NonNull
             @Override
-            public MyMissingViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                return new MyMissingViewHolder(LayoutInflater.from(getApplicationContext()).inflate(R.layout.my_missing_row,parent,false));
+            public MyCrimeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                return new MyCrimeViewHolder(LayoutInflater.from(getApplicationContext()).inflate(R.layout.my_crime_row,parent,false));
             }
         };
         list.setHasFixedSize(true);
         list.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         list.setAdapter(f);
-
     }
 
+    public void goToAddMyComplain(View view) {
+        startActivity(new Intent(this,AddMyComplainActivity.class));
+    }
     @Override
     protected void onStart() {
         super.onStart();
         f.startListening();
     }
-    public void goToAddMyMissing(View view) {
-        startActivity(new Intent(this,AddMyMissingActivity.class));
-    }
-
 }

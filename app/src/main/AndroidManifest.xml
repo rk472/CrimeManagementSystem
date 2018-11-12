@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.smarttersstudio.crimemanagementsystem">
+    package="com.smarttersstudio.rescuenation">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="Rescue Nation"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".SplashActivity">
+        <activity android:name="com.smarttersstudio.rescuenation.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,30 +21,30 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MenuActivity"
+            android:name="com.smarttersstudio.rescuenation.MenuActivity"
             android:theme="@style/NoBar" />
-        <activity android:name=".CrimeActivity"
+        <activity android:name="com.smarttersstudio.rescuenation.CrimeActivity"
             android:label="Crime List"/>
-        <activity android:name=".MissingActivity"
+        <activity android:name="com.smarttersstudio.rescuenation.MissingActivity"
             android:label="Missing List" />
-        <activity android:name=".LoginActivity"
+        <activity android:name="com.smarttersstudio.rescuenation.LoginActivity"
             android:theme="@style/NoBar" />
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".SignupActivity"
+        <activity android:name="com.smarttersstudio.rescuenation.ProfileActivity" />
+        <activity android:name="com.smarttersstudio.rescuenation.SignupActivity"
             android:theme="@style/NoBar" />
-        <activity android:name=".ForgotPasswordActivity"
+        <activity android:name="com.smarttersstudio.rescuenation.ForgotPasswordActivity"
             android:label="Reset Password"/>
-        <activity android:name=".MyMissingActivity"
+        <activity android:name="com.smarttersstudio.rescuenation.MyMissingActivity"
             android:label="My Missing List"/>
-        <activity android:name=".MyCrimeActivity"
+        <activity android:name="com.smarttersstudio.rescuenation.MyCrimeActivity"
             android:label="My Crime List" />
-        <activity android:name=".MyComplainActivity"
+        <activity android:name="com.smarttersstudio.rescuenation.MyComplainActivity"
             android:label="My Complain List" />
-        <activity android:name=".AddMyCrimeActivity"
+        <activity android:name="com.smarttersstudio.rescuenation.AddMyCrimeActivity"
             android:label="Add Crime"/>
-        <activity android:name=".AddMyComplainActivity"
+        <activity android:name="com.smarttersstudio.rescuenation.AddMyComplainActivity"
             android:label="Add Complain" />
-        <activity android:name=".AddMyMissingActivity"
+        <activity android:name="com.smarttersstudio.rescuenation.AddMyMissingActivity"
             android:label="Add Missing Person"/>
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"

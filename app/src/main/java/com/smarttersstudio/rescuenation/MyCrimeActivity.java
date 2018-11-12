@@ -1,4 +1,4 @@
-package com.smarttersstudio.crimemanagementsystem;
+package com.smarttersstudio.rescuenation;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -18,10 +18,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.smarttersstudio.crimemanagementsystem.pojo.Own;
-import com.smarttersstudio.crimemanagementsystem.viewholder.MyCrimeViewHolder;
+import com.smarttersstudio.rescuenation.pojo.Own;
+import com.smarttersstudio.rescuenation.viewholder.MyCrimeViewHolder;
 
-public class MyComplainActivity extends AppCompatActivity {
+public class MyCrimeActivity extends AppCompatActivity {
     private RecyclerView list;
     private FirebaseAuth mAuth;
     private FirebaseRecyclerAdapter<Own,MyCrimeViewHolder> f;
@@ -29,15 +29,15 @@ public class MyComplainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_complain);
-        list=findViewById(R.id.my_complain_list);
+        setContentView(R.layout.activity_my_crime);
+        list=findViewById(R.id.my_crime_list);
         mAuth=FirebaseAuth.getInstance();
         userRef= FirebaseDatabase.getInstance().getReference().child("users").child(mAuth.getCurrentUser().getUid());
-        FirebaseRecyclerOptions<Own> options=new FirebaseRecyclerOptions.Builder<Own>().setQuery(userRef.child("complain"),Own.class).build();
+        FirebaseRecyclerOptions<Own> options=new FirebaseRecyclerOptions.Builder<Own>().setQuery(userRef.child("crime"),Own.class).build();
         f=new FirebaseRecyclerAdapter<Own, MyCrimeViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull final MyCrimeViewHolder holder, int position, @NonNull Own model) {
-                DatabaseReference crimeRef=FirebaseDatabase.getInstance().getReference().child("complain").child(model.getKey());
+                DatabaseReference crimeRef=FirebaseDatabase.getInstance().getReference().child("crime").child(model.getKey());
                 crimeRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -76,11 +76,13 @@ public class MyComplainActivity extends AppCompatActivity {
         list.setHasFixedSize(true);
         list.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         list.setAdapter(f);
+
     }
 
-    public void goToAddMyComplain(View view) {
-        startActivity(new Intent(this,AddMyComplainActivity.class));
+    public void goToAddMyCrime(View view) {
+        startActivity(new Intent(this,AddMyCrimeActivity.class));
     }
+
     @Override
     protected void onStart() {
         super.onStart();

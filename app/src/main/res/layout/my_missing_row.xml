@@ -37,7 +37,7 @@
                         android:id="@+id/my_missing_row_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="10sp"
+                        android:layout_marginTop="3sp"
                         android:fontFamily="@font/acme"
                         android:textSize="17sp" />
                 </LinearLayout>
@@ -143,6 +143,9 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/colorAccent"
+            android:textSize="18sp"
+            android:textColor="#fff"
             android:text="call"
             android:id="@+id/missing_call_button"/>
     </LinearLayout>
