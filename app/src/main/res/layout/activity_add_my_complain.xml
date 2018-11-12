@@ -39,6 +39,16 @@
         android:inputType="number"
         android:maxLength="6"
         android:layout_margin="10dp"
+        android:hint="Phone"
+        android:textAlignment="center"
+        android:id="@+id/complain_phone"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="45sp"
+        android:background="@drawable/edit_shape"
+        android:inputType="number"
+        android:maxLength="6"
+        android:layout_margin="10dp"
         android:hint="Pin Code"
         android:textAlignment="center"
         android:id="@+id/complain_pincode"/>

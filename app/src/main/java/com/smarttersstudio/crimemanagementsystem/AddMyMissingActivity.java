@@ -138,7 +138,7 @@ public class AddMyMissingActivity extends AppCompatActivity {
                     m.put("uid", uid);
                     m.put("status", "Not Found");
                     m.put("phone",phone);
-                    @SuppressLint("SimpleDateFormat") SimpleDateFormat s = new SimpleDateFormat("dd mm yyyy hh mm");
+                    SimpleDateFormat s=new SimpleDateFormat("dd:mm:yyyy hh:mm");
                     String date = s.format(new Date());
                     m.put("date", date);
                     final String key = missingRef.push().getKey();
