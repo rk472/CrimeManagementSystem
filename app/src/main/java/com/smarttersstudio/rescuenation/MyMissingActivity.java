@@ -1,4 +1,4 @@
-package com.smarttersstudio.rescuenation;
+package com.smarttersstudio.crimemanagementsystem;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -9,17 +9,21 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.smarttersstudio.rescuenation.pojo.Own;
-import com.smarttersstudio.rescuenation.viewholder.MyMissingViewHolder;
+import com.smarttersstudio.crimemanagementsystem.pojo.Own;
+import com.smarttersstudio.crimemanagementsystem.viewholder.MyCrimeViewHolder;
+import com.smarttersstudio.crimemanagementsystem.viewholder.MyMissingViewHolder;
 
 public class MyMissingActivity extends AppCompatActivity {
     private FirebaseRecyclerAdapter<Own,MyMissingViewHolder> f;
@@ -36,7 +40,7 @@ public class MyMissingActivity extends AppCompatActivity {
         FirebaseRecyclerOptions<Own> options=new FirebaseRecyclerOptions.Builder<Own>().setQuery(userRef.child("missing"),Own.class).build();
         f=new FirebaseRecyclerAdapter<Own, MyMissingViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull final MyMissingViewHolder holder, int position, @NonNull Own model) {
+            protected void onBindViewHolder(@NonNull final MyMissingViewHolder holder, final int position, @NonNull Own model) {
                 DatabaseReference crimeRef=FirebaseDatabase.getInstance().getReference().child("missing").child(model.getKey());
                 crimeRef.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -48,6 +52,23 @@ public class MyMissingActivity extends AppCompatActivity {
                         holder.setGender(dataSnapshot.child("gender").getValue().toString());
                         holder.setImage(dataSnapshot.child("image").getValue().toString(),getApplicationContext());
                         holder.setName(dataSnapshot.child("name").getValue().toString());
+                        holder.callButton.setText("Report Found");
+                        holder.callButton.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                DatabaseReference db=getRef(position);
+                                db.child("status").setValue("FOUND").addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if(task.isSuccessful()){
+                                            Toast.makeText(MyMissingActivity.this, "The report's status changed to found", Toast.LENGTH_SHORT).show();
+                                        }else{
+                                            Toast.makeText(MyMissingActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+                            }
+                        });
                     }
 
                     @Override
