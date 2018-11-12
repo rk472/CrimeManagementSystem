@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_margin="10sp"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Terms and Conditions"
+        android:gravity="center"
+        android:id="@+id/terms"
+        android:textStyle="bold"
+        android:textSize="35sp"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_marginBottom="50sp"
+        android:layout_marginTop="10sp"
+        android:layout_below="@id/terms"
+        android:id="@+id/scroll_term"
+        android:fillViewport="true"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textStyle="bold"
+                android:text="Unauthorised use of this application may give to a claim for damages and/or be a criminal offence
+
+Without prejudice to any of our other rights or remedies, if we reasonably suspect that you have breached any of these Terms and Conditions we can suspend or terminate your access to the
+ AETN Service or take any other action we consider necessary to defend or promote any of our rights or interests.
+
+ You must register for our Services using accurate data, provide your current mobile phone number, and, if you change it, update this mobile phone number using edit number
+ You agree to receive text messages and phone calls (from us or our third-party providers) with codes to register for our Services.
+
+You must access and use our Services only for legal, authorized, and acceptable purposes. You will not use (or assist others in using) our Services in ways that:
+ (a) violate, misappropriate, or infringe the rights of WhatsApp, our users, or others, including privacy, publicity, intellectual property, or other proprietary rights;
+ (b) are illegal, obscene, defamatory, threatening, intimidating, harassing, hateful, racially, or ethnically offensive, or instigate or encourage conduct that would be illegal,
+ or otherwise inappropriate, including promoting violent crimes;
+(c) involve publishing falsehoods, misrepresentations, or misleading statements;
+ (d) impersonate someone;
+ (e) involve sending illegal or impermissible communications such as bulk messaging, auto-messaging, auto-dialing, and the like;
+ (f) involve any non-personal use of our Services unless otherwise authorized by us.
+
+
+ You are responsible for keeping your device and your App account safe and secure, and you must notify us promptly of any unauthorized use or security breach of your account or our Services.
+ information that is by its nature confidential
+
+Any kind of proxy services are not allowed, and if the data is wrong or masked out by any proxy/privilege protection services, the Registrant account will be deleted.
+
+ However, you promise to always accept updates to the application when offered to you, We may also wish to stop providing the app, and may terminate use of it at any time without giving notice of termination to you.
+You should be aware that there are certain things that admin will not take responsibility for.
+
+"
+                android:textSize="18sp"/>
+        </LinearLayout>
+    </ScrollView>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="40sp"
+        android:id="@+id/modal_agree"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:textSize="20sp"
+        android:background="@color/colorAccent"
+        android:text="I Agree"
+        android:textAllCaps="false"
+        android:paddingLeft="40sp"
+        android:paddingRight="40sp"
+        android:textColor="#ffffff" />
+</RelativeLayout>

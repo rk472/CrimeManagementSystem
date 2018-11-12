@@ -4,7 +4,8 @@
     package="com.smarttersstudio.rescuenation">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.smarttersstudio.rescuenation.SplashActivity">
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,35 +22,47 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.smarttersstudio.rescuenation.MenuActivity"
+            android:name=".MenuActivity"
             android:theme="@style/NoBar" />
-        <activity android:name="com.smarttersstudio.rescuenation.CrimeActivity"
-            android:label="Crime List"/>
-        <activity android:name="com.smarttersstudio.rescuenation.MissingActivity"
+        <activity
+            android:name=".CrimeActivity"
+            android:label="Crime List" />
+        <activity
+            android:name=".MissingActivity"
             android:label="Missing List" />
-        <activity android:name="com.smarttersstudio.rescuenation.LoginActivity"
+        <activity
+            android:name=".LoginActivity"
             android:theme="@style/NoBar" />
-        <activity android:name="com.smarttersstudio.rescuenation.ProfileActivity" />
-        <activity android:name="com.smarttersstudio.rescuenation.SignupActivity"
+        <activity android:name=".ProfileActivity" />
+        <activity
+            android:name=".SignupActivity"
             android:theme="@style/NoBar" />
-        <activity android:name="com.smarttersstudio.rescuenation.ForgotPasswordActivity"
-            android:label="Reset Password"/>
-        <activity android:name="com.smarttersstudio.rescuenation.MyMissingActivity"
-            android:label="My Missing List"/>
-        <activity android:name="com.smarttersstudio.rescuenation.MyCrimeActivity"
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:label="Reset Password" />
+        <activity
+            android:name=".MyMissingActivity"
+            android:label="My Missing List" />
+        <activity
+            android:name=".MyCrimeActivity"
             android:label="My Crime List" />
-        <activity android:name="com.smarttersstudio.rescuenation.MyComplainActivity"
+        <activity
+            android:name=".MyComplainActivity"
             android:label="My Complain List" />
-        <activity android:name="com.smarttersstudio.rescuenation.AddMyCrimeActivity"
-            android:label="Add Crime"/>
-        <activity android:name="com.smarttersstudio.rescuenation.AddMyComplainActivity"
+        <activity
+            android:name=".AddMyCrimeActivity"
+            android:label="Add Crime" />
+        <activity
+            android:name=".AddMyComplainActivity"
             android:label="Add Complain" />
-        <activity android:name="com.smarttersstudio.rescuenation.AddMyMissingActivity"
-            android:label="Add Missing Person"/>
+        <activity
+            android:name=".AddMyMissingActivity"
+            android:label="Add Missing Person" />
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Base.Theme.AppCompat" />
+        <activity android:name=".AboutUsActivity"></activity>
     </application>
 
 </manifest>

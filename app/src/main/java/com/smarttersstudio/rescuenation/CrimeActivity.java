@@ -100,6 +100,8 @@ public class CrimeActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId()==R.id.action_login){
             startActivity(new Intent(this,LoginActivity.class));
+        }if(item.getItemId()==R.id.action_about){
+            startActivity(new Intent(this,AboutUsActivity.class));
         }
         return  true;
     }

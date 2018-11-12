@@ -36,50 +36,57 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     public void signup(View view) {
-        final String name=nameText.getText().toString().trim();
-        final String email=emailText.getText().toString().trim();
-        final String phone=phoneText.getText().toString().trim();
-        String pass=passText.getText().toString().trim();
-        if(TextUtils.isEmpty(name) || TextUtils.isEmpty(email) || TextUtils.isEmpty(phone) || TextUtils.isEmpty(pass) ){
-            Toast.makeText(this, "You must fill all the fields ", Toast.LENGTH_SHORT).show();
-        }else{
-            final ProgressDialog p=new ProgressDialog(this);
-            p.setMessage("Please wait while we are creating your account");
-            p.setTitle("Please wait");
-            p.setCancelable(false);
-            p.setCanceledOnTouchOutside(false);
-            p.show();
-            mAuth.createUserWithEmailAndPassword(email,pass).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    p.dismiss();
-                    Toast.makeText(SignupActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            }).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                @Override
-                public void onSuccess(AuthResult authResult) {
-                    String uid=authResult.getUser().getUid();
-                    Map<String,Object> m=new HashMap<>();
-                    m.put("name",name);
-                    m.put("email",email);
-                    m.put("phone",phone);
-                    userRef.child(uid).updateChildren(m).addOnSuccessListener(new OnSuccessListener() {
-                        @Override
-                        public void onSuccess(Object o) {
-                            p.dismiss();
-                            Toast.makeText(SignupActivity.this, "account successfully created", Toast.LENGTH_SHORT).show();
-                            finish();
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
+        final TermsDialog dialog= new TermsDialog(this);
+        dialog.show();
+        dialog.btn_agree.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final String name=nameText.getText().toString().trim();
+                final String email=emailText.getText().toString().trim();
+                final String phone=phoneText.getText().toString().trim();
+                String pass=passText.getText().toString().trim();
+                if(TextUtils.isEmpty(name) || TextUtils.isEmpty(email) || TextUtils.isEmpty(phone) || TextUtils.isEmpty(pass) ){
+                    Toast.makeText(SignupActivity.this, "You must fill all the fields ", Toast.LENGTH_SHORT).show();
+                }else{
+                    final ProgressDialog p=new ProgressDialog(SignupActivity.this);
+                    p.setMessage("Please wait while we are creating your account");
+                    p.setTitle("Please wait");
+                    p.setCancelable(false);
+                    p.setCanceledOnTouchOutside(false);
+                    p.show();
+                    mAuth.createUserWithEmailAndPassword(email,pass).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             p.dismiss();
                             Toast.makeText(SignupActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
+                    }).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                        @Override
+                        public void onSuccess(AuthResult authResult) {
+                            String uid=authResult.getUser().getUid();
+                            Map<String,Object> m=new HashMap<>();
+                            m.put("name",name);
+                            m.put("email",email);
+                            m.put("phone",phone);
+                            m.put("dp","none");
+                            userRef.child(uid).updateChildren(m).addOnSuccessListener(new OnSuccessListener() {
+                                @Override
+                                public void onSuccess(Object o) {
+                                    p.dismiss();
+                                    Toast.makeText(SignupActivity.this, "Account successfully created", Toast.LENGTH_SHORT).show();
+                                    finish();
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    p.dismiss();
+                                    Toast.makeText(SignupActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
                     });
                 }
-            });
-        }
-
+            }
+        });
     }
 }

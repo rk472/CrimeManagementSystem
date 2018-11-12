@@ -44,8 +44,8 @@ public class MyMissingViewHolder extends RecyclerView.ViewHolder {
         genderText.setText(gender);
     }
     public void setStatus(String status){
-
-            }
+        statusText.setText(status);
+    }
     public void setPin(String pin){
         pinText.setText(pin);
     }

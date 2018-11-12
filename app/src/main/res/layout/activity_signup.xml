@@ -40,6 +40,7 @@
             android:layout_height="45sp"
             android:background="@drawable/edit_shape"
             android:inputType="number"
+            android:maxLength="10"
             android:id="@+id/signup_phone"
             android:hint="Phone number"
             android:layout_margin="10dp"
